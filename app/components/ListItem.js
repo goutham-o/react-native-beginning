@@ -4,6 +4,7 @@ import React from "react";
 import AppText from "./AppText";
 import colors from "../config/colors";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ListItem = ({
   title,
@@ -21,9 +22,20 @@ const ListItem = ({
             {IconComponent}
             {image && <Image style={styles.image} source={image} />}
             <View style={styles.detailsContainer}>
-              <AppText style={styles.title}>{title}</AppText>
-              {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+              <AppText style={styles.title} numberOfLines={1}>
+                {title}
+              </AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle} numberOfLines={2}>
+                  {subTitle}
+                </AppText>
+              )}
             </View>
+            <MaterialCommunityIcons
+              name='chevron-right'
+              color={colors.medium}
+              size={25}
+            />
             {/* <View style={{ width: 30, height: 30, backgroundColor: "green", alignSelf: 'center', position: 'absolute', right: 0 }} /> */}
           </View>
         </TouchableHighlight>
@@ -38,7 +50,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    alignItems: "center",
   },
   image: {
     width: 70,
@@ -46,6 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 35,
   },
   detailsContainer: {
+    flex: 1,
     marginLeft: 10,
     justifyContent: "center",
   },

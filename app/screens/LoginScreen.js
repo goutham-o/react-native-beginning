@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 20,
   },
-  container: { padding: 20 },
+  container: { padding: 10 },
 });
 export default LoginScreen;
